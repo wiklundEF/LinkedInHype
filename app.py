@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # 1. Page Config
-st.set_page_config(page_title="LinkedIn Hype Machine", page_icon="👔")
+st.set_page_config(page_title="LinkedIn Hype Machine", page_icon="🚀")
 st.title("🚀 The LinkedIn Hype Machine")
 st.markdown("From 'Respectable Consultant' to 'Full-Blown Influencer'.")
 
@@ -20,40 +20,51 @@ cringe_level = st.select_slider(
 )
 
 # 4. The Input
-user_input = st.text_area("What's the mundane update?", placeholder="e.g., My coffee was cold.")
+user_input = st.text_area("What's the mundane update?", placeholder="e.g., I just sat in a booooring meeting")
 
 # 5. Logic
 if st.button("Manifest Success ✨"):
     if user_input:
         with st.spinner("Calculating synergy..."):
-            # We map the slider choice to specific instructions
-            # We map the slider choice to specific instructions
+            
+            # We map the slider choice to specific intensity levels
             intensity_map = {
-                'Humble Consultant': "Polite but slightly boastful. Turn the event into a mild lesson about efficiency or teamwork. Use 3 hashtags.",
-                'Rising Star': "Enthusiastic hustle-culture. Turn the event into a story about 'growth mindset' and overcoming adversity. Use 5 hashtags and some emojis.",
-                'Thought Leader': "Cringe-worthy toxic positivity. Turn the mundane event into a profound realization about B2B sales, leadership, or entrepreneurship. Short, punchy sentences. 10 hashtags.",
-                'Full Disruptor': "Aggressive corporate hustle. Use buzzwords like 'synergy', 'pivot', '10x', and 'pipeline'. Frame the event as a masterclass in outworking the competition. 15 hashtags.",
-                'LinkedIn Deity': "Maximum cringe influencer. Make up a fake interaction with a CEO, a barista, or an intern based on the event. Everything is a metaphor for building a 7-figure empire. Mentions waking up at 3:00 AM. 20+ hashtags."
+                'Humble Consultant': "Keep it professional but slightly self-important. Use 3 hashtags.",
+                'Rising Star': "Enthusiastic hustle-culture. Overuse emojis. Use 5 hashtags.",
+                'Thought Leader': "Cringe-worthy toxic positivity. Turn the mundane event into a profound realization about B2B sales or leadership. 10 hashtags.",
+                'Full Disruptor': "Aggressive corporate hustle. Use extreme buzzwords. Frame the event as a masterclass in outworking the competition. 15 hashtags.",
+                'LinkedIn Deity': "Maximum cringe influencer. Make up a fake interaction with a CEO based on the event. Everything is a metaphor for a 7-figure empire. Wakes up at 3:00 AM. 20+ hashtags."
             }
             
             style_instruction = intensity_map[cringe_level]
             
-            prompt = """
-            Act as an obnoxiously optimistic, toxic-positivity LinkedIn Influencer. Style: {style_instruction}.
-            Rewrite the following event into a viral, cringe-worthy LinkedIn post: "{user_input}"
+            # Your master prompt, fused with the slider variable
+            prompt = f"""
+            Rewrite the text in high-energy influencer style with strong personal branding tone.
             
-            CRITICAL RULES:
-            - NEVER be depressing, dark, or existential. You are blindly optimistic!
-            - Every negative event is actually a "secret blessing" or a "powerful leadership lesson".
-            - Always use double line breaks between sentences (the classic "broetry" format).
-            - Start with a hook like 'I was today years old when...' or 'Stop scrolling.'
-            - End with 'Agree?' or 'What's your 5am routine?'
+            Make it:
+            - Bold
+            - Vision-driven
+            - Transformational sounding
+            - Slightly hype-focused
+            - Optimistic and future-oriented
+            - Designed to sound viral-ready
+            - CRITICAL INTENSITY MODIFIER: {style_instruction}
+            
+            Use:
+            - Micro-paragraphs
+            - Rhythm and flow
+            - Power words like: impact, growth, momentum, unlock, elevate, scale
+            
+            Finish with a strong one-line takeaway, a ridiculous engagement question, + trending hashtags.
+            
+            Text:
+            <<< {user_input} >>>
             """
             
             try:
                 response = model.generate_content(prompt)
                 st.subheader(f"Level: {cringe_level}")
-                # Use markdown for better line-break rendering
                 st.markdown(response.text) 
             except Exception as e:
                 st.error(f"Something went wrong: {e}")
