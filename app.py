@@ -27,19 +27,28 @@ if st.button("Manifest Success ✨"):
     if user_input:
         with st.spinner("Calculating synergy..."):
             # We map the slider choice to specific instructions
+            # We map the slider choice to specific instructions
             intensity_map = {
-                'Humble Consultant': "Professional, slightly corporate, uses 2-3 hashtags. Brief and polite.",
-                'Rising Star': "Enthusiastic, mentions 'growth mindset', uses 5-8 hashtags and some emojis.",
-                'Thought Leader': "Very dramatic. Uses line breaks for every sentence. Mentions 'the grind'. 10+ hashtags.",
-                'Full Disruptor': "Uses buzzwords like 'synergy', 'pivot', and 'web3'. Extremely high energy. 15+ hashtags.",
-                'LinkedIn Deity': "Completely unhinged toxic positivity. Everything is a metaphor for business. Uses 25+ hashtags. Mentions a 3:00 AM wake-up call."
+                'Humble Consultant': "Polite but slightly boastful. Turn the event into a mild lesson about efficiency or teamwork. Use 3 hashtags.",
+                'Rising Star': "Enthusiastic hustle-culture. Turn the event into a story about 'growth mindset' and overcoming adversity. Use 5 hashtags and some emojis.",
+                'Thought Leader': "Cringe-worthy toxic positivity. Turn the mundane event into a profound realization about B2B sales, leadership, or entrepreneurship. Short, punchy sentences. 10 hashtags.",
+                'Full Disruptor': "Aggressive corporate hustle. Use buzzwords like 'synergy', 'pivot', '10x', and 'pipeline'. Frame the event as a masterclass in outworking the competition. 15 hashtags.",
+                'LinkedIn Deity': "Maximum cringe influencer. Make up a fake interaction with a CEO, a barista, or an intern based on the event. Everything is a metaphor for building a 7-figure empire. Mentions waking up at 3:00 AM. 20+ hashtags."
             }
             
             style_instruction = intensity_map[cringe_level]
             
             prompt = f"""
-            Act as a LinkedIn user. Style: {style_instruction}.
-            Rewrite the following event into a viral post: "{user_input}"
+            Act as an obnoxiously optimistic, toxic-positivity LinkedIn Influencer. Style: {style_instruction}.
+            Rewrite the following event into a viral, cringe-worthy LinkedIn post: "{user_input}"
+            
+            CRITICAL RULES:
+            - NEVER be depressing, dark, or existential. You are blindly optimistic!
+            - Every negative event is actually a "secret blessing" or a "powerful leadership lesson".
+            - Always use double line breaks between sentences (the classic "broetry" format).
+            - Start with a hook like 'I was today years old when...' or 'Stop scrolling.'
+            - End with 'Agree?' or 'What's your 5am routine?'
+            """
             
             Rules:
             - Always use double line breaks.
