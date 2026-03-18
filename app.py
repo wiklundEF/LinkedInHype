@@ -9,7 +9,7 @@ st.markdown("From 'Respectable Consultant' to 'Full-Blown Influencer'.")
 # 2. Setup API
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-pro')
 except Exception as e:
     st.error("API Key missing! Add 'GEMINI_API_KEY' to your Streamlit Secrets.")
 
