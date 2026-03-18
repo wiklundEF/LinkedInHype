@@ -38,7 +38,7 @@ if st.button("Manifest Success ✨"):
             
             style_instruction = intensity_map[cringe_level]
             
-            # Your master prompt, fused with the slider variable
+           # Your master prompt, fused with the slider variable
             prompt = f"""
             Rewrite the text in high-energy influencer style with strong personal branding tone.
             
@@ -50,6 +50,10 @@ if st.button("Manifest Success ✨"):
             - Optimistic and future-oriented
             - Designed to sound viral-ready
             - CRITICAL INTENSITY MODIFIER: {style_instruction}
+            
+            STRICT LENGTH CONSTRAINT: 
+            - The entire output MUST be an absolute maximum of 10 lines (including the hashtags). 
+            - Keep it incredibly concise and punchy. Cut the fluff.
             
             Use:
             - Micro-paragraphs
