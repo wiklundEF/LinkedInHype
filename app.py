@@ -38,7 +38,7 @@ if st.button("Manifest Success ✨"):
             
             style_instruction = intensity_map[cringe_level]
             
-            prompt = f"""
+            prompt = """
             Act as an obnoxiously optimistic, toxic-positivity LinkedIn Influencer. Style: {style_instruction}.
             Rewrite the following event into a viral, cringe-worthy LinkedIn post: "{user_input}"
             
@@ -48,12 +48,6 @@ if st.button("Manifest Success ✨"):
             - Always use double line breaks between sentences (the classic "broetry" format).
             - Start with a hook like 'I was today years old when...' or 'Stop scrolling.'
             - End with 'Agree?' or 'What's your 5am routine?'
-            """
-            
-            Rules:
-            - Always use double line breaks.
-            - Start with a hook like 'I was today years old when...' or 'Stop scrolling.'
-            - End with 'Agree?' or 'What's your secret?'
             """
             
             try:
