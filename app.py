@@ -50,8 +50,9 @@ if st.button("Manifest Success ✨"):
             try:
                 response = model.generate_content(prompt)
                 st.subheader(f"Level: {cringe_level}")
-                st.write(response.text)
+                # Use markdown for better line-break rendering
+                st.markdown(response.text) 
             except Exception as e:
-                st.error(f"Error: {e}")
+                st.error(f"Something went wrong: {e}")
     else:
         st.warning("Input required to disrupt the industry.")
